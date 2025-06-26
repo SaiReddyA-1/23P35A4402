@@ -1,7 +1,8 @@
 # 🔗 AffordMed URL Shortener
 
 ![Shortener UI](https://github.com/user-attachments/assets/0b01a1a8-bf10-4a8e-8914-695689ef61d0)
-![Statistics Page](https://github.com/user-attachments/assets/c4b478c3-abf8-4404-8add-007325700eb7)
+
+![image](https://github.com/user-attachments/assets/560e4400-4821-4595-99d3-ef8eb1995fff)
 
 A fully functional, full-stack **URL Shortener Microservice** with analytics — built using **Node.js + Express** for the backend and **React + Material UI** for the frontend. Designed for robust production-like environments with proper logging, error handling, and a clean UI.
 
