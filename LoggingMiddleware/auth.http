@@ -1,0 +1,32 @@
+POST http://20.244.56.144/evaluation-service/auth
+Content-Type: application/json
+
+{
+  "email": "saireddy.annamareddy@gmail.com",
+  "name": "Annamareddy Jyothi Saireddy",
+  "rollNo": "23P35A4402",
+  "accessCode": "NFwgRT",
+  "clientID": "6705030e-3879-40f5-88f3-bd2c97198d86",
+  "clientSecret": "uYHVKnPBTgvARqqX"
+}
+
+
+
+# HTTP/1.1 201 Created
+# date: Thu, 26 Jun 2025 07:17:41 GMT
+# content-type: application/json; charset=utf-8
+# content-length: 866
+# connection: close
+# access-control-allow-credentials: true
+# access-control-allow-headers: Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With
+# access-control-allow-methods: POST, OPTIONS, GET, PUT
+# access-control-allow-origin: *
+# trace-id: c08d3b7d-4348-47b4-b982-58757c205204
+# x-content-type-options: nosniff
+# x-xss-protection: 1;mode=block
+
+# {
+#   "token_type": "Bearer",
+#   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJzYWlyZWRkeS5hbm5hbWFyZWRkeUBnbWFpbC5jb20iLCJleHAiOjE3NTA5MjMxNjEsImlhdCI6MTc1MDkyMjI2MSwiaXNzIjoiQWZmb3JkIE1lZGljYWwgVGVjaG5vbG9naWVzIFByaXZhdGUgTGltaXRlZCIsImp0aSI6IjMzNWQwYzU5LTNkNjUtNDM3Ni1iN2VjLWVjYjE0NjZlNzRlMiIsImxvY2FsZSI6ImVuLUlOIiwibmFtZSI6ImFubmFtYXJlZGR5IGp5b3RoaSBzYWlyZWRkeSIsInN1YiI6IjY3MDUwMzBlLTM4NzktNDBmNS04OGYzLWJkMmM5NzE5OGQ4NiJ9LCJlbWFpbCI6InNhaXJlZGR5LmFubmFtYXJlZGR5QGdtYWlsLmNvbSIsIm5hbWUiOiJhbm5hbWFyZWRkeSBqeW90aGkgc2FpcmVkZHkiLCJyb2xsTm8iOiIyM3AzNWE0NDAyIiwiYWNjZXNzQ29kZSI6Ik5Gd2dSVCIsImNsaWVudElEIjoiNjcwNTAzMGUtMzg3OS00MGY1LTg4ZjMtYmQyYzk3MTk4ZDg2IiwiY2xpZW50U2VjcmV0IjoidVlIVktuUEJUZ3ZBUnFxWCJ9.8xfGEnJmLWLhLE_3fYn06oWL_vD6VaDXQY9mHlRuf_g",
+#   "expires_in": 1750923161
+# }
