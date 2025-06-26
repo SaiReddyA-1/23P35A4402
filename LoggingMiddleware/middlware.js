@@ -29,10 +29,12 @@ const Log = async (stack, level, pkg, message) => {
 };
 
 const logMiddleware = async (req, res, next) => {
-  const { stack, level, pkg, message } = req.body || {};
-  // await log("backend", "info", "handler", "received request");
+  const { stack = 'backend', level = 'info', pkg = 'handler', message = 'received request' } = req.body || {};
   await Log(
-    `${stack},${level},${pkg},${message}  ${req.method} ${req.originalUrl}`
+    stack,
+    level,
+    pkg,
+    `${message}  ${req.method} ${req.originalUrl}`
   );
   next();
 };
