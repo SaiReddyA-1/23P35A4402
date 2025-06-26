@@ -1,74 +1,138 @@
-# AffordMed URL Shortener
+# 🔗 AffordMed URL Shortener
 
-A simple full-stack URL shortener with statistics, built with Node.js/Express (backend) and React + Material UI (frontend).
+![Shortener UI](https://github.com/user-attachments/assets/0b01a1a8-bf10-4a8e-8914-695689ef61d0)
+![Statistics Page](https://github.com/user-attachments/assets/c4b478c3-abf8-4404-8add-007325700eb7)
 
-## Project Structure
+A fully functional, full-stack **URL Shortener Microservice** with analytics — built using **Node.js + Express** for the backend and **React + Material UI** for the frontend. Designed for robust production-like environments with proper logging, error handling, and a clean UI.
+
+---
+
+## 🗂 Project Structure
 
 ```
+
 AffordMed-URL-Shortener/
-├── LoggingMiddleware/
-├── BackendTestSubmission/
-├── FrontendTestSubmission/
+├── LoggingMiddleware/         # Custom middleware (no console.log used)
+├── BackendTestSubmission/     # Node.js + Express backend
+├── FrontendTestSubmission/    # React + Material UI frontend
 └── README.md
-```
 
-## Getting Started
+````
 
-### Backend
+---
 
-1. Open a terminal and navigate to `AffordMed-URL-Shortener/BackendTestSubmission`.
+## 🚀 Getting Started
+
+### 🧩 Backend
+
+1. Navigate to the backend folder:
+   ```bash
+   cd AffordMed-URL-Shortener/BackendTestSubmission
+````
+
 2. Install dependencies:
-   ```sh
+
+   ```bash
    npm install
    ```
-3. Start the backend server:
-   ```sh
+
+3. Start the server:
+
+   ```bash
    npm start
    ```
 
-   The backend runs on [http://localhost:5000](http://localhost:5000).
+   The backend runs on: [http://localhost:5000](http://localhost:5000)
 
-### Frontend
+---
 
-1. Open another terminal and navigate to `AffordMed-URL-Shortener/FrontendTestSubmission`.
+### 🌐 Frontend
+
+1. Navigate to the frontend folder:
+
+   ```bash
+   cd AffordMed-URL-Shortener/FrontendTestSubmission
+   ```
+
 2. Install dependencies:
-   ```sh
+
+   ```bash
    npm install
    ```
-3. Start the frontend React app:
-   ```sh
+
+3. Start the React app:
+
+   ```bash
    npm start
    ```
 
-   The frontend runs on [http://localhost:3000](http://localhost:3000).
+   The frontend runs on: [http://localhost:3000](http://localhost:3000)
 
-## .env Usage
+---
 
-No .env file is required by default. If you want to change the backend port, set the `PORT` environment variable before starting the backend.
+## ⚙️ Environment Variables
 
-## Features
+* No `.env` file is required by default.
+* To change the backend port, set the `PORT` environment variable manually before starting the backend.
 
-- Shorten up to 5 URLs at once, with optional custom shortcode and expiry (in minutes)
-- View statistics for each short URL: original URL, creation/expiry, total clicks, click history (timestamp, referrer, country)
-- All logs are handled by a custom middleware (no console.log)
-- No authentication required
+---
 
-## API Endpoints
+## ✅ Features
 
-- `POST /shorturls` — Create a short URL
-- `GET /shorturls/:shortcode` — Get statistics for a short URL
-- `GET /:shortcode` — Redirect to the original URL
+* 🔗 Shorten up to **5 URLs concurrently**
+* 🕒 Custom or default (30 min) expiry time for short URLs
+* 🧠 Optional **custom shortcodes** with uniqueness check
+* 📊 Full statistics:
 
-## CORS
+  * Original long URL
+  * Short link creation and expiry timestamps
+  * Total clicks
+  * Click logs with:
 
-CORS is enabled on the backend to allow requests from the frontend.
+    * Timestamp
+    * Referrer
+    * Country (mocked/coarse geo)
+* 🧾 Centralized custom logging middleware (no console.log used)
+* 🛡 No user authentication required — API is open for use
 
-## Logging
+---
 
-- Backend logs are stored in `LoggingMiddleware/logs.txt`
-- Frontend logs are kept in memory (see `src/services/logger.js`)
+## 📡 API Endpoints
 
-## Notes
+| Method | Endpoint                | Description                          |
+| ------ | ----------------------- | ------------------------------------ |
+| `POST` | `/shorturls`            | Create a new shortened URL           |
+| `GET`  | `/shorturls/:shortcode` | Fetch statistics for a shortened URL |
+| `GET`  | `/:shortcode`           | Redirect to original long URL        |
 
-- This project is for demonstration and educational purposes.
-- No business logic is in the frontend; all shortening/statistics are handled by the backend.
+---
+
+## 🌍 CORS Support
+
+* Backend allows CORS requests from `http://localhost:3000` by default.
+
+---
+
+## 🧾 Logging System
+
+* ✅ Backend logs stored in: `LoggingMiddleware/logs.txt`
+* ✅ Frontend interaction logs (button clicks, page loads) are stored in memory and sent to backend using `src/services/logger.js`
+* ❌ No `console.log` or inbuilt loggers used anywhere
+
+---
+
+## 📌 Notes
+
+* Built for demo & educational use (e.g., hackathons, assignments, hiring tests)
+* Pure JavaScript (no TypeScript)
+* Clean React architecture with `components/`, `pages/`, and `services/`
+* Backend follows MVC structure with routing, controllers, models, services, and middlewares
+* All core logic resides in the backend; the frontend is API-driven only
+
+---
+
+## 🙌 Acknowledgements
+
+Built as part of the **AffordMed Campus Hiring Evaluation Test** to demonstrate full-stack skills and microservice architecture with strong logging and UI principles.
+
+---
