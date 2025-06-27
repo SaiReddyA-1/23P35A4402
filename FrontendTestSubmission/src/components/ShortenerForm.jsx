@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Box, Button, TextField, Grid, Typography, Accordion, AccordionSummary, AccordionDetails, Tooltip, InputAdornment, Alert } from '@mui/material';
+import { Box, Button, TextField, Grid, Typography, Accordion, AccordionSummary, AccordionDetails, Tooltip, InputAdornment, Alert, Paper } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import LinkIcon from '@mui/icons-material/Link';
 import api from '../services/api';
 
 const initialFields = [{ url: '', validity: '30', shortcode: '', helper: '' }];
@@ -86,12 +88,12 @@ function ShortenerForm({ onShorten }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Box>
-        <Typography variant="h5" sx={{ mb: 2, mt: 1, fontWeight: 600 }}>
-          URL Shortener
+      <Paper elevation={4} sx={{ p: { xs: 2, md: 4 }, borderRadius: 4, background: 'linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%)', mb: 4 }}>
+        <Typography variant="h5" sx={{ mb: 2, mt: 1, fontWeight: 700, letterSpacing: 1, textAlign: 'center', color: 'primary.main' }}>
+          <LinkIcon sx={{ mr: 1, verticalAlign: 'middle' }} />URL Shortener
         </Typography>
         {fields.map((f, idx) => (
-          <Accordion key={idx} defaultExpanded={idx === 0} sx={{ mb: 2 }}>
+          <Accordion key={idx} defaultExpanded={idx === 0} sx={{ mb: 2, borderRadius: 2, boxShadow: 2 }}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography fontWeight={600}>URL {idx + 1}</Typography>
             </AccordionSummary>
@@ -99,26 +101,30 @@ function ShortenerForm({ onShorten }) {
               <Grid container spacing={2} alignItems="center">
                 <Grid item xs={12} md={6}>
                   <TextField
-                    label="Long URL *"
+                    label="Long URL "
                     value={f.url}
                     onChange={e => handleChange(idx, 'url', e.target.value)}
                     fullWidth
                     required
                     error={!!errors[idx]}
                     helperText={errors[idx] || 'Paste the full URL you want to shorten'}
+                    variant="filled"
+                    sx={{ borderRadius: 2, background: 'rgba(255,255,255,0.7)' }}
                   />
                 </Grid>
                 <Grid item xs={12} md={3}>
                   <Tooltip title="Leave empty for auto-generation" arrow>
                     <TextField
-                      label="Custom Shortcode (Optional)"
+                      label="Shortcode (Optional)"
                       value={f.shortcode}
                       onChange={e => handleChange(idx, 'shortcode', e.target.value)}
                       fullWidth
-                      InputProps={{
-                        endAdornment: <InputAdornment position="end">?</InputAdornment>
-                      }}
+                      // InputProps={{
+                      //   endAdornment: <InputAdornment position="end">?</InputAdornment>
+                      // }}
                       helperText={f.helper || 'Alphanumeric or hyphen'}
+                      variant="filled"
+                      sx={{ borderRadius: 2, background: 'rgba(255,255,255,0.7)' }}
                     />
                   </Tooltip>
                 </Grid>
@@ -133,6 +139,8 @@ function ShortenerForm({ onShorten }) {
                         endAdornment: <InputAdornment position="end">min</InputAdornment>
                       }}
                       helperText="Default: 30 minutes"
+                      variant="filled"
+                      sx={{ borderRadius: 2, background: 'rgba(255,255,255,0.7)' }}
                     />
                   </Tooltip>
                 </Grid>
@@ -140,16 +148,29 @@ function ShortenerForm({ onShorten }) {
             </AccordionDetails>
           </Accordion>
         ))}
-        <Box display="flex" gap={2} mb={2}>
-          <Button variant="outlined" onClick={addField} disabled={fields.length >= 5}>
+        <Box display="flex" gap={2} mb={2} justifyContent="center">
+          <Button
+            variant="outlined"
+            startIcon={<AddCircleOutlineIcon />}
+            onClick={addField}
+            disabled={fields.length >= 5}
+            sx={{ borderRadius: 3, px: 3, fontWeight: 600, fontSize: '1rem', boxShadow: 1 }}
+          >
             ADD ANOTHER URL
           </Button>
-          <Button type="submit" variant="contained" size="large" disabled={loading} sx={{ minWidth: 200 }}>
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            disabled={loading}
+            sx={{ minWidth: 200, borderRadius: 3, px: 3, fontWeight: 700, fontSize: '1.1rem', boxShadow: 3, background: 'linear-gradient(90deg, #1976d2 0%, #d81b60 100%)' }}
+            endIcon={<LinkIcon />}
+          >
             {loading ? 'Shortening...' : 'SHORTEN URLS'}
           </Button>
         </Box>
         {formError && <Alert severity="error">{formError}</Alert>}
-      </Box>
+      </Paper>
     </form>
   );
 }
